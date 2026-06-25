@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 2 - Berpikir Komputasional | Informatika Kelas VIII</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            margin: 0; 
+            padding: 0; 
+            background: #f4f7f6; 
+        }
+        .top-nav { 
+            background: #2c3e50; 
+            color: white; 
+            padding: 12px 20px; 
+            text-align: center; 
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .top-nav a { 
+            color: #ecf0f1; 
+            text-decoration: none; 
+            margin: 0 15px; 
+            font-weight: 600; 
+            transition: color 0.3s;
+        }
+        .top-nav a:hover { color: #3498db; }
+        .top-nav .separator { color: #7f8c8d; }
+        .container { 
+            max-width: 900px; 
+            margin: 30px auto; 
+            background: white; 
+            padding: 40px 50px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+            border-radius: 8px;
+        }
+        .chapter-header { 
+            text-align: center; 
+            border-bottom: 3px solid #3498db; 
+            padding-bottom: 20px; 
+            margin-bottom: 40px; 
+        }
+        .chapter-header h1 { 
+            color: #2c3e50; 
+            margin: 0; 
+            font-size: 2.5em; 
+            letter-spacing: 2px;
+        }
+        .chapter-header h2 {
+            margin: 10px 0;
+            color: #34495e;
+            font-size: 1.8em;
+        }
+        .chapter-header p { 
+            color: #7f8c8d; 
+            font-style: italic; 
+            font-size: 1.1em; 
+            margin-top: 10px;
+        }
+        .content-section { margin-bottom: 35px; }
+        .content-section h2 { 
+            color: #2980b9; 
+            border-left: 5px solid #3498db; 
+            padding-left: 15px; 
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .content-section h3 { 
+            color: #34495e; 
+            margin-top: 20px; 
+            font-size: 1.2em;
+        }
+        .content-section h4 {
+            color: #7f8c8d;
+            margin-top: 15px;
+            font-size: 1.05em;
+        }
+        .content-section ul, .content-section ol { margin-left: 20px; margin-bottom: 15px; }
+        .content-section li { margin-bottom: 8px; }
+        .content-section strong { color: #2c3e50; }
+        .info-box {
+            background: #eaf4fc;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background: #fef9e7;
+            border-left: 4px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .example-box strong { color: #d35400; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table th, table td {
+            border: 1px solid #bdc3c7;
+            padding: 10px;
+            text-align: left;
+        }
+        table th {
+            background: #3498db;
+            color: white;
+        }
+        table tr:nth-child(even) { background: #f8f9fa; }
+        .bottom-nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            margin-top: 50px; 
+            padding-top: 25px; 
+            border-top: 1px solid #ddd; 
+        }
+        .btn { 
+            padding: 12px 24px; 
+            background: #3498db; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            transition: all 0.3s; 
+            border: none; 
+            cursor: pointer; 
+            font-size: 1em; 
+            font-weight: 600;
+            display: inline-block;
+        }
+        .btn:hover { background: #2980b9; transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .btn-secondary { background: #95a5a6; }
+        .btn-secondary:hover { background: #7f8c8d; }
+        .btn-quiz { background: #e67e22; }
+        .btn-quiz:hover { background: #d35400; }
+        footer { 
+            background: #2c3e50; 
+            color: #ecf0f1; 
+            padding: 40px 20px; 
+            margin-top: 50px; 
+        }
+        .footer-container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 30px; 
+        }
+        .footer-col h3 { 
+            color: #3498db; 
+            border-bottom: 1px solid #7f8c8d; 
+            padding-bottom: 10px; 
+            margin-bottom: 15px; 
+        }
+        .footer-col a { 
+            color: #bdc3c7; 
+            text-decoration: none; 
+            display: block; 
+            margin-bottom: 8px; 
+            transition: color 0.3s;
+        }
+        .footer-col a:hover { color: white; }
+        .copyright { 
+            text-align: center; 
+            margin-top: 30px; 
+            padding-top: 20px; 
+            border-top: 1px solid #34495e; 
+            color: #7f8c8d; 
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 20px; margin: 10px; }
+            .chapter-header h1 { font-size: 2em; }
+            .bottom-nav { flex-direction: column; gap: 15px; }
+            .btn { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="index.html">Informatika Kelas VIII</a>
+    <span class="separator">|</span>
+    <a href="index.html">Beranda</a> 
+    <span class="separator">|</span>
+    <a href="index.html#bab">Daftar Bab</a> 
+    <span class="separator">|</span>
+    <a href="index.html#penulis">Penulis</a>
+</nav>
+
+<div class="container">
+    <div class="chapter-header">
+        <h1>BAB 2</h1>
+        <h2>Berpikir Komputasional</h2>
+        <p>Mengenal fungsi, himpunan, sistem bilangan, algoritma, dan struktur data sebagai fondasi berpikir komputasional.</p>
+    </div>
+
+    <div class="content-section">
+        <h2>A. Fungsi</h2>
+        <p>Dalam matematika dan informatika, <strong>fungsi</strong> adalah relasi khusus yang memasangkan setiap anggota himpunan asal (domain) dengan tepat satu anggota himpunan tujuan (kodomain). Himpunan hasil pemetaan disebut <strong>range</strong> atau daerah hasil.</p>
+        
+        <div class="info-box">
+            <strong>📌 Notasi Fungsi:</strong><br>
+            f: A → B dibaca "fungsi f dari A ke B"<br>
+            f(x) = y dibaca "f memetakan x ke y"
+        </div>
+
+        <h3>Jenis-Jenis Fungsi</h3>
+        <ul>
+            <li><strong>Fungsi Injective (Satu-satu):</strong> Setiap anggota domain dipetakan ke anggota kodomain yang berbeda.</li>
+            <li><strong>Fungsi Surjective (Pada):</strong> Setiap anggota kodomain memiliki pasangan di domain.</li>
+            <li><strong>Fungsi Bijective:</strong> Gabungan injective dan surjective — korespondensi satu-satu.</li>
+        </ul>
+
+        <div class="example-box">
+            <strong>💡 Contoh Penerapan dalam Informatika:</strong><br>
+            Fungsi hash dalam kriptografi memetakan data berukuran berapa pun menjadi nilai dengan panjang tetap. Ini adalah contoh fungsi dalam dunia komputasi.
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>B. Himpunan dan Sistem Bilangan</h2>
+        
+        <h3>1. Himpunan</h3>
+        <p><strong>Himpunan</strong> adalah kumpulan objek-objek yang terdefinisi dengan jelas (well-defined). Objek-objek dalam himpunan disebut <strong>anggota</strong> atau <strong>elemen</strong>.</p>
+        
+        <h4>Notasi Himpunan</h4>
+        <ul>
+            <li>A = {1, 2, 3, 4, 5} — notasi enumerasi</li>
+            <li>B = {x | x bilangan genap, x &lt; 10} — notasi pembentuk himpunan</li>
+        </ul>
+
+        <h4>Operasi Himpunan</h4>
+        <table>
+            <tr><th>Operasi</th><th>Notasi</th><th>Definisi</th></tr>
+            <tr><td>Union (Gabungan)</td><td>A ∪ B</td><td>Anggota A atau B atau keduanya</td></tr>
+            <tr><td>Intersection (Irisan)</td><td>A ∩ B</td><td>Anggota yang ada di A dan B</td></tr>
+            <tr><td>Complement (Komplemen)</td><td>A'</td><td>Anggota semesta yang bukan anggota A</td></tr>
+            <tr><td>Difference (Selisih)</td><td>A - B</td><td>Anggota A yang bukan anggota B</td></tr>
+        </table>
+
+        <h3>2. Sistem Bilangan</h3>
+        <p>Sistem bilangan adalah cara merepresentasikan nilai numerik. Dalam informatika, kita mengenal beberapa sistem bilangan penting:</p>
+        <ul>
+            <li><strong>Desimal (Basis 10):</strong> Menggunakan angka 0-9. Sistem yang biasa kita gunakan.</li>
+            <li><strong>Biner (Basis 2):</strong> Menggunakan angka 0 dan 1. Bahasa mesin komputer.</li>
+            <li><strong>Oktal (Basis 8):</strong> Menggunakan angka 0-7.</li>
+            <li><strong>Heksadesimal (Basis 16):</strong> Menggunakan angka 0-9 dan huruf A-F.</li>
+        </ul>
+
+        <h3>a. Ilustrasi Sistem Bilangan</h3>
+        
+        <h4>1) Timbangan Digital</h4>
+        <p>Timbangan digital menggunakan sistem bilangan biner untuk merepresentasikan berat benda. Sensor beban mengubah tekanan menjadi sinyal listrik yang kemudian dikonversi menjadi nilai biner oleh ADC (Analog-to-Digital Converter).</p>
+        
+        <div class="example-box">
+            <strong>💡 Ilustrasi:</strong><br>
+            Berat 5 kg direpresentasikan sebagai 101 dalam biner (5 = 4 + 1 = 2² + 2⁰).
+        </div>
+
+        <h4>2) Tas dan Logam Mulia Batang</h4>
+        <p>Analogi tas dan logam mulia batang membantu memahami konsep nilai tempat dalam sistem bilangan. Setiap batang memiliki nilai berbeda (1, 2, 4, 8, 16, dst.) sesuai pola pangkat dua.</p>
+
+        <h4>3) Analisis Soal Tas dan Logam Mulia</h4>
+        <p>Dengan kombinasi batang logam mulia tertentu, kita dapat merepresentasikan berbagai nilai berat. Ini adalah konsep dasar dari sistem bilangan biner yang digunakan komputer.</p>
+
+        <h3>b. Konversi Bilangan Desimal menjadi Biner dan Oktal</h3>
+        
+        <h4>1) Konversi ke Bilangan Biner</h4>
+        <p>Metode yang digunakan adalah <strong>pembagian berulang dengan 2</strong>. Sisa pembagian dibaca dari bawah ke atas.</p>
+        
+        <div class="example-box">
+            <strong>💡 Contoh: Konversi 13 (desimal) ke biner</strong><br>
+            13 ÷ 2 = 6 sisa <strong>1</strong><br>
+            6 ÷ 2 = 3 sisa <strong>0</strong><br>
+            3 ÷ 2 = 1 sisa <strong>1</strong><br>
+            1 ÷ 2 = 0 sisa <strong>1</strong><br>
+            <strong>Hasil: 1101₂</strong> (dibaca dari bawah ke atas)
+        </div>
+
+        <h4>2) Konversi ke Bilangan Oktal</h4>
+        <p>Metode yang digunakan adalah <strong>pembagian berulang dengan 8</strong>.</p>
+
+        <div class="example-box">
+            <strong>💡 Contoh: Konversi 75 (desimal) ke oktal</strong><br>
+            75 ÷ 8 = 9 sisa <strong>3</strong><br>
+            9 ÷ 8 = 1 sisa <strong>1</strong><br>
+            1 ÷ 8 = 0 sisa <strong>1</strong><br>
+            <strong>Hasil: 113₈</strong>
+        </div>
+
+        <h3>c. Konversi Bilangan Biner dan Oktal menjadi Desimal</h3>
+        
+        <h4>1) Konversi Biner ke Desimal</h4>
+        <p>Setiap digit biner dikalikan dengan pangkat 2 sesuai posisinya, kemudian dijumlahkan.</p>
+
+        <div class="example-box">
+            <strong>💡 Contoh: Konversi 1101₂ ke desimal</strong><br>
+            = (1×2³) + (1×2²) + (0×2¹) + (1×2⁰)<br>
+            = 8 + 4 + 0 + 1<br>
+            = <strong>13</strong>
+        </div>
+
+        <h4>2) Konversi Oktal ke Desimal</h4>
+        <p>Setiap digit oktal dikalikan dengan pangkat 8 sesuai posisinya.</p>
+
+        <div class="example-box">
+            <strong>💡 Contoh: Konversi 113₈ ke desimal</strong><br>
+            = (1×8²) + (1×8¹) + (3×8⁰)<br>
+            = 64 + 8 + 3<br>
+            = <strong>75</strong>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>C. Algoritma</h2>
+        <p><strong>Algoritma</strong> adalah urutan langkah-langkah logis dan sistematis untuk menyelesaikan suatu masalah. Algoritma yang baik memiliki ciri-ciri berikut:</p>
+        <ul>
+            <li><strong>Finiteness (Keterbatasan):</strong> Harus berakhir setelah sejumlah langkah tertentu.</li>
+            <li><strong>Definiteness (Kepastian):</strong> Setiap langkah harus jelas dan tidak ambigu.</li>
+            <li><strong>Input:</strong> Memiliki nol atau lebih masukan.</li>
+            <li><strong>Output:</strong> Menghasilkan satu atau lebih keluaran.</li>
+            <li><strong>Effectiveness (Efektivitas):</strong> Setiap langkah harus dapat dilaksanakan.</li>
+        </ul>
+
+        <h3>Notasi Algoritma</h3>
+        <ul>
+            <li><strong>Naratif:</strong> Deskripsi langkah dengan kalimat natural.</li>
+            <li><strong>Flowchart:</strong> Diagram alir dengan simbol-simbol standar.</li>
+            <li><strong>Pseudocode:</strong> Kode semu yang menyerupai bahasa pemrograman.</li>
+        </ul>
+
+        <div class="example-box">
+            <strong>💡 Contoh Algoritma: Menentukan Bilangan Ganjil/Genap</strong><br>
+            1. Mulai<br>
+            2. Masukkan bilangan N<br>
+            3. Jika N mod 2 = 0, maka cetak "Genap"<br>
+            4. Jika tidak, cetak "Ganjil"<br>
+            5. Selesai
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>D. Struktur Data</h2>
+        <p><strong>Struktur data</strong> adalah cara mengorganisasi, menyimpan, dan mengelola data dalam komputer agar dapat diakses dan dimodifikasi secara efisien.</p>
+
+        <h3>Jenis-Jenis Struktur Data Dasar</h3>
+        <table>
+            <tr><th>Struktur Data</th><th>Karakteristik</th><th>Contoh Penggunaan</th></tr>
+            <tr><td>Array</td><td>Kumpulan elemen dengan indeks berurutan</td><td>Daftar nilai siswa</td></tr>
+            <tr><td>List</td><td>Kumpulan elemen dinamis</td><td>Daftar belanja</td></tr>
+            <tr><td>Stack</td><td>LIFO (Last In First Out)</td><td>Tombol Undo di aplikasi</td></tr>
+            <tr><td>Queue</td><td>FIFO (First In First Out)</td><td>Antrian printer</td></tr>
+            <tr><td>Tree</td><td>Struktur hierarki bercabang</td><td>Sistem file komputer</td></tr>
+            <tr><td>Graph</td><td>Kumpulan node yang saling terhubung</td><td>Jaringan sosial</td></tr>
+        </table>
+
+        <div class="info-box">
+            <strong>📌 Mengapa Struktur Data Penting?</strong><br>
+            Pemilihan struktur data yang tepat dapat meningkatkan efisiensi program secara signifikan. Misalnya, mencari data dalam array terurut dengan binary search jauh lebih cepat daripada linear search.
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="index.html" class="btn btn-secondary">🏠 Beranda</a>
+        <a href="uji-formatif-2.html" class="btn btn-quiz">✍️ Uji Formatif Bab 2</a>
+        <a href="3.html" class="btn">Bab Selanjutnya →</a>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-col">
+            <h3>Buku</h3>
+            <p>Buku Siswa Informatika Kelas VIII Kurikulum Merdeka. Membekali peserta didik dengan keterampilan berpikir komputasional.</p>
+        </div>
+        <div class="footer-col">
+            <h3>Navigasi</h3>
+            <a href="index.html">Beranda</a>
+            <a href="index.html#tentang">Tentang Buku</a>
+            <a href="index.html#bab">Daftar Bab</a>
+            <a href="index.html#penulis">Penulis</a>
+        </div>
+        <div class="footer-col">
+            <h3>Kontak</h3>
+            <a href="mailto:yusni.herlinda@gmail.com">yusni.herlinda@gmail.com</a>
+            <a href="#">MTsN 6 Agam</a>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2026 Yusni Herlinda. Hak cipta dilindungi.
+    </div>
+</footer>
+
+</body>
+</html>

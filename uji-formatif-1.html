@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uji Formatif Bab 1 - Hakikat Kurikulum | Pengembangan dan Inovasi Kurikulum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .test-header {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .test-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #43a047 0%, #2e7d32 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .test-header h1 {
+            color: #1565c0;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .test-info {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            text-align: left;
+        }
+        
+        .test-info p {
+            margin: 0.5rem 0;
+        }
+        
+        .form-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .form-section h2 {
+            color: #1565c0;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #1e88e5;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .form-group label .required {
+            color: #e53935;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1e88e5;
+            box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .question-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .question-section h2 {
+            color: #1565c0;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #1e88e5;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid #f57c00;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .warning-box strong {
+            color: #e65100;
+        }
+        
+        .question {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #1e88e5;
+        }
+        
+        .question h3 {
+            color: #1565c0;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .question p {
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .options label {
+            display: block;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .options label:hover {
+            background: #e3f2fd;
+            border-color: #1e88e5;
+        }
+        
+        .options input[type="radio"] {
+            margin-right: 0.75rem;
+        }
+        
+        .question textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .question textarea:focus {
+            outline: none;
+            border-color: #1e88e5;
+            box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
+        }
+        
+        .score-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+            display: none;
+        }
+        
+        .score-display.show {
+            display: block;
+        }
+        
+        .score-display h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .score-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .score-item .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .score-item .value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 0.25rem;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: #1e88e5;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1565c0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 136, 229, 0.4);
+        }
+        
+        .btn-success {
+            background: #43a047;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #2e7d32;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(67, 160, 71, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #757575;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #616161;
+        }
+        
+        .btn-warning {
+            background: #f57c00;
+            color: white;
+        }
+        
+        .btn-warning:hover {
+            background: #e65100;
+        }
+        
+        footer {
+            background: #0d47a1;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #bbdefb;
+        }
+        
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 0.25rem 0;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-section a:hover {
+            opacity: 0.8;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .score-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><strong>Pengembangan dan Inovasi Kurikulum</strong></a>
+            <div>
+                <a href="index.html">Beranda</a> | 
+                <a href="index.html#bab">Daftar Bab</a> | 
+                <a href="1.html">Materi Bab 1</a>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div class="test-header">
+            <div class="test-badge">📋 Uji Formatif Bab 1</div>
+            <h1>Hakikat Kurikulum, Pengembangan dan Inovasi Kurikulum</h1>
+            <div class="test-info">
+                <p><strong>📋 Bagian A:</strong> Pilihan Ganda (10 soal, skor 10/soal) | <strong>✍️ Bagian B:</strong> Essay (5 soal, skor 20/soal)</p>
+                <p><strong>Materi:</strong> Pengertian kurikulum, hakikat kurikulum, fungsi dan peran kurikulum, pengembangan kurikulum, inovasi kurikulum, dan tantangannya di era digital.</p>
+                <p><strong>Waktu:</strong> Tidak terbatas | <strong>Total Skor:</strong> 200 poin</p>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <h2>📋 Data Siswa</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Nama Lengkap <span class="required">*</span></label>
+                    <input type="text" id="nama" placeholder="Masukkan nama lengkap Anda" required>
+                </div>
+                <div class="form-group">
+                    <label>NIS <span class="required">*</span></label>
+                    <input type="text" id="nim" placeholder="Masukkan NIM Anda" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>📅 Tanggal Ujian</label>
+                    <input type="date" id="tanggal">
+                </div>
+                <div class="form-group">
+                    <label>Fakultas</label>
+                    <input type="text" id="fakultas" placeholder="Contoh: Fakultas Ilmu Tarbiyah dan Keguruan">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Jurusan / Prodi</label>
+                    <input type="text" id="prodi" placeholder="Contoh: Pendidikan Agama Islam">
+                </div>
+                <div class="form-group">
+                    <label>Semester</label>
+                    <select id="semester">
+                        <option value="">Pilih Semester</option>
+                        <option value="1">Semester 1</option>
+                        <option value="2">Semester 2</option>
+                        <option value="3">Semester 3</option>
+                        <option value="4">Semester 4</option>
+                        <option value="5">Semester 5</option>
+                        <option value="6">Semester 6</option>
+                        <option value="7">Semester 7</option>
+                        <option value="8">Semester 8</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Kelas</label>
+                <input type="text" id="kelas" placeholder="Contoh: PAI A 2024">
+            </div>
+        </div>
+        
+        <div class="question-section">
+            <h2>📋 Bagian A – Pilihan Ganda</h2>
+            <div class="warning-box">
+                <strong>⚠️ Lengkapi semua 10 soal pilihan ganda!</strong> Setiap soal bernilai 10 poin.
+            </div>
+            
+            <div class="question">
+                <h3>Soal 1</h3>
+                <p>Secara etimologis, kurikulum berasal dari bahasa Latin yang berarti...</p>
+                <div class="options">
+                    <label><input type="radio" name="pg1" value="a"> a) Tempat belajar dan mengajar</label>
+                    <label><input type="radio" name="pg1" value="b"> b) Pelari dan tempat berpacu</label>
+                    <label><input type="radio" name="pg1" value="c"> c) Rencana pembelajaran</label>
+                    <label><input type="radio" name="pg1" value="d"> d) Proses pendidikan</label>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Soal 2</h3>
+                <p>Menurut UU No. 20 Tahun 2003, kurikulum didefinisikan sebagai...</p>
+                <div class="options">
+                    <label><input type="radio" name="pg2" value="a"> a) Seperangkat rencana dan pengaturan mengenai tujuan, isi, dan bahan pelajaran serta cara yang digunakan</label>
+                    <label><input type="radio" name="pg2" value="b"> b) Pengalaman belajar yang diperoleh siswa</label>
+                    <label><input type="radio" name="pg2" value="c"> c) Dokumen resmi sekolah</label>
+                    <label><input type="radio" name="pg2" value="d"> d) Metode pembelajaran yang digunakan guru</label>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Soal 3</h3>
+                <p>Fungsi kurikulum yang bertujuan melestarikan nilai-nilai budaya dan pengetahuan disebut fungsi...</p>
+                <div class="options">
+                    <label><input type="radio" name="pg3" value="a"> a) Kreasi</label>
+                    <label><input type="radio" name="pg3" value="b"> b) Konservasi</label>
+                    <label><input type="radio" name="pg3" value="c"> c) Adaptasi</label>
+                    <label><input type="radio" name="pg3" value="d"> d) Kritik</label>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Soal 4</h3>
+                <p>Fungsi kurikulum yang menekankan pada pengembangan kreativitas dan inovasi peserta didik adalah fungsi...</p>
+                <div class="options">
+                    <label><input type="radio" name="pg4" value="a"> a) Konservasi</label>
+                    <label><input type="radio" name="pg4" value="b"> b) Kritik</label>
+                    <label><input type="radio" name="pg4" value="c"> c) Kreasi</label>
+                    <label><input type="radio" name="pg4" value="d"> d) Evaluasi</label>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Soal 5</h3>
+                <p>Tahapan pertama dalam pengembangan kurikulum adalah...</p>
+                <div class="options">
+                    <label><input type="radio" name="pg5" value="a"> a) Perumusan tujuan</label>
+                    <label><input type="radio" name="pg5" value="b"> b) Analisis kebutuhan</label>
+                    <label><input type="radio" name="pg5" value="c"> c) Pemilihan materi</label>
+                    <label><input type="radio" name="pg5" value="d"> d) Implementasi</label>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Soal 6</h3>
+                <p>Prinsip pengembangan kurikulum yang menyatakan bahwa kurikulum harus sesuai dengan kebutuhan peserta didik dan masyarakat disebut prinsip...</p>
+                <div class="options">
+                    <label><input type="radio" name="pg6" value="a"> a) Fleksibilitas</label>
+                    <label><input type="radio" name="pg6" value="b"> b) Kontinuitas</label>
+                    <label><input type="radio" name="pg6" value="c"> c) Relevansi</label>
+                    <label><input type="radio" name="pg6" value="d"> d) Efektivitas</label>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Soal 7</h3>
+                <p>Inovasi kurikulum yang berupa perubahan metode pembelajaran dari teacher-centered menjadi student-centered termasuk dalam kategori...</p>
+                <div class="options">
+                    <label><input type="radio" name="pg7" value="a"> a) Inovasi isi/materi</label>
+                    <label><input type="radio" name="pg7" value="b"> b) Inovasi proses pembelajaran</label>
+                    <label><input type="radio" name="pg7" value="c"> c) Inovasi evaluasi</label>
+                    <label><input type="radio" name="pg7" value="d"> d) Inovasi manajemen</label>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Soal 8</h3>
+                <p>Kurikulum yang menekankan pada pembelajaran fleksibel dan memberikan otonomi kepada guru adalah...</p>
+                <div class="options">
+                    <label><input type="radio" name="pg8" value="a"> a) Kurikulum 2013</label>
+                    <label><input type="radio" name="pg8" value="b"> b) KTSP</label>
+                    <label><input type="radio" name="pg8" value="c"> c) Kurikulum Merdeka</label>
+                    <label><input type="radio" name="pg8" value="d"> d) KBK</label>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Soal 9</h3>
+                <p>Tantangan pengembangan kurikulum di era digital yang berkaitan dengan perkembangan AI dan big data adalah...</p>
+                <div class="options">
+                    <label><input type="radio" name="pg9" value="a"> a) Globalisasi</label>
+                    <label><input type="radio" name="pg9" value="b"> b) Disrupsi teknologi</label>
+                    <label><input type="radio" name="pg9" value="c"> c) Perubahan karakter peserta didik</label>
+                    <label><input type="radio" name="pg9" value="d"> d) Kesenjangan infrastruktur</label>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Soal 10</h3>
+                <p>Dalam konteks Pendidikan Islam, pengembangan kurikulum yang mengintegrasikan ilmu agama dan ilmu umum disebut...</p>
+                <div class="options">
+                    <label><input type="radio" name="pg10" value="a"> a) Kurikulum Tahfidz</label>
+                    <label><input type="radio" name="pg10" value="b"> b) Integrasi Ilmu</label>
+                    <label><input type="radio" name="pg10" value="c"> c) Kurikulum Syariah</label>
+                    <label><input type="radio" name="pg10" value="d"> d) Kurikulum Sains</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="question-section">
+            <h2>✍️ Bagian B – Essay</h2>
+            <div class="warning-box">
+                <strong>⚠️ Isi Nama Lengkap dan NIM terlebih dahulu!</strong> Setiap soal essay bernilai 20 poin.
+            </div>
+            
+            <div class="question">
+                <h3>Soal Essay 1</h3>
+                <p>Jelaskan pengertian kurikulum menurut UU No. 20 Tahun 2003 dan sebutkan empat komponen utama kurikulum!</p>
+                <textarea id="essay1" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </div>
+            
+            <div class="question">
+                <h3>Soal Essay 2</h3>
+                <p>Uraikan empat fungsi kurikulum (konservasi, kreasi, kritik, dan adaptasi) beserta contohnya dalam konteks pendidikan Islam!</p>
+                <textarea id="essay2" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </div>
+            
+            <div class="question">
+                <h3>Soal Essay 3</h3>
+                <p>Sebutkan dan jelaskan tahapan-tahapan dalam pengembangan kurikulum secara sistematis!</p>
+                <textarea id="essay3" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </div>
+            
+            <div class="question">
+                <h3>Soal Essay 4</h3>
+                <p>Apa perbedaan antara pengembangan kurikulum dan inovasi kurikulum? Berikan contoh konkret masing-masing!</p>
+                <textarea id="essay4" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </div>
+            
+            <div class="question">
+                <h3>Soal Essay 5</h3>
+                <p>Jelaskan tantangan pengembangan dan inovasi kurikulum di era digital serta bagaimana relevansinya untuk Pendidikan Agama Islam!</p>
+                <textarea id="essay5" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </div>
+        </div>
+        
+        <div id="scoreDisplay" class="score-display">
+            <h2>📊 Hasil Uji Formatif</h2>
+            <p>Terima kasih telah menyelesaikan uji formatif ini!</p>
+            <div class="score-grid">
+                <div class="score-item">
+                    <div class="label">Skor Pilihan Ganda</div>
+                    <div class="value" id="scorePG">0/100</div>
+                </div>
+                <div class="score-item">
+                    <div class="label">Skor Essay</div>
+                    <div class="value" id="scoreEssay">0/100</div>
+                </div>
+                <div class="score-item">
+                    <div class="label">Skor Total</div>
+                    <div class="value" id="scoreTotal">0/200</div>
+                </div>
+                <div class="score-item">
+                    <div class="label">Nilai Akhir</div>
+                    <div class="value" id="nilaiAkhir">0</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="button-group">
+            <button type="button" class="btn btn-success" onclick="hitungSkor()">
+                ✉️ KIRIM JAWABAN & LIHAT HASIL
+            </button>
+            <button type="button" class="btn btn-primary" onclick="unduhPDF()">
+                📥 UNDUH PDF LENGKAP
+            </button>
+            <button type="button" class="btn btn-warning" onclick="unduhSkor()">
+                📊 UNDUH SKOR SAJA
+            </button>
+            <button type="button" class="btn btn-secondary" onclick="kirimEmail()">
+                ✉️ Kirim Email Dosen
+            </button>
+            <button type="button" class="btn btn-secondary" onclick="resetForm()">
+                🔄 MULAI ULANG
+            </button>
+        </div>
+        
+        <div class="button-group">
+            <a href="index.html" class="btn btn-secondary">🏠 Kembali ke Beranda</a>
+            <a href="1.html" class="btn btn-secondary">📖 Kembali ke Materi Bab 1</a>
+            <a href="2.html" class="btn btn-primary">Lanjut ke Materi Bab 2 →</a>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Pengembangan dan Inovasi Kurikulum</h3>
+                <p>Buku daras untuk siswa dan praktisi pendidikan. Teori, praktik, dan aplikasi dalam pendidikan Islam.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigasi</h3>
+                <a href="index.html">Beranda</a>
+                <a href="index.html#tentang">Tentang Buku</a>
+                <a href="index.html#bab">Daftar Bab</a>
+                <a href="index.html#penulis">Penulis</a>
+            </div>
+            <div class="footer-section">
+                <h3>Buku</h3>
+                <a href="#">Cetak — Rp 149.000</a>
+                <a href="#">E-Book — Rp 89.000</a>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <a href="mailto:supriadi@uinbukittinggi.ac.id">supriadi@uinbukittinggi.ac.id</a>
+                <a href="#">Prodi S.2 PAI UIN Bukittinggi</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Dr. Supriadi, S.Ag., M.Pd. Hak cipta dilindungi.</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        // Set tanggal hari ini secara otomatis
+        document.getElementById('tanggal').valueAsDate = new Date();
+        
+        // Kunci jawaban pilihan ganda
+        const kunciJawaban = {
+            pg1: 'b',
+            pg2: 'a',
+            pg3: 'b',
+            pg4: 'c',
+            pg5: 'b',
+            pg6: 'c',
+            pg7: 'b',
+            pg8: 'c',
+            pg9: 'b',
+            pg10: 'b'
+        };
+        
+        function hitungSkor() {
+            // Validasi data Siswa
+            const nama = document.getElementById('nama').value.trim();
+            const nim = document.getElementById('nim').value.trim();
+            
+            if (!nama || !nim) {
+                alert('⚠️ Harap isi Nama Lengkap dan NIM terlebih dahulu!');
+                return;
+            }
+            
+            // Hitung skor pilihan ganda
+            let skorPG = 0;
+            for (let i = 1; i <= 10; i++) {
+                const jawaban = document.querySelector(`input[name="pg${i}"]:checked`);
+                if (jawaban && jawaban.value === kunciJawaban[`pg${i}`]) {
+                    skorPG += 10;
+                }
+            }
+            
+            // Hitung skor essay (simulasi - dalam implementasi nyata perlu penilaian manual)
+            let skorEssay = 0;
+            let jumlahEssayTerjawab = 0;
+            
+            for (let i = 1; i <= 5; i++) {
+                const jawaban = document.getElementById(`essay${i}`).value.trim();
+                if (jawaban.length > 50) { // Minimal 50 karakter dianggap serius menjawab
+                    skorEssay += 20;
+                    jumlahEssayTerjawab++;
+                } else if (jawaban.length > 0) {
+                    skorEssay += 10; // Jawaban terlalu pendek
+                    jumlahEssayTerjawab++;
+                }
+            }
+            
+            const skorTotal = skorPG + skorEssay;
+            const nilaiAkhir = (skorTotal / 200) * 100;
+            
+            // Tampilkan hasil
+            document.getElementById('scorePG').textContent = `${skorPG}/100`;
+            document.getElementById('scoreEssay').textContent = `${skorEssay}/100`;
+            document.getElementById('scoreTotal').textContent = `${skorTotal}/200`;
+            document.getElementById('nilaiAkhir').textContent = `${nilaiAkhir.toFixed(1)}`;
+            document.getElementById('scoreDisplay').classList.add('show');
+            
+            // Scroll ke hasil
+            document.getElementById('scoreDisplay').scrollIntoView({ behavior: 'smooth' });
+            
+            // Simpan data untuk PDF dan email
+            window.testData = {
+                nama,
+                nim,
+                tanggal: document.getElementById('tanggal').value,
+                fakultas: document.getElementById('fakultas').value,
+                prodi: document.getElementById('prodi').value,
+                semester: document.getElementById('semester').value,
+                kelas: document.getElementById('kelas').value,
+                skorPG,
+                skorEssay,
+                skorTotal,
+                nilaiAkhir: nilaiAkhir.toFixed(1),
+                jawabanPG: {},
+                jawabanEssay: {}
+            };
+            
+            // Simpan jawaban PG
+            for (let i = 1; i <= 10; i++) {
+                const jawaban = document.querySelector(`input[name="pg${i}"]:checked`);
+                window.testData.jawabanPG[`pg${i}`] = jawaban ? jawaban.value : '-';
+            }
+            
+            // Simpan jawaban essay
+            for (let i = 1; i <= 5; i++) {
+                window.testData.jawabanEssay[`essay${i}`] = document.getElementById(`essay${i}`).value;
+            }
+            
+            alert(`✅ Uji formatif berhasil diselesaikan!\n\nSkor Pilihan Ganda: ${skorPG}/100\nSkor Essay: ${skorEssay}/100\nSkor Total: ${skorTotal}/200\nNilai Akhir: ${nilaiAkhir.toFixed(1)}`);
+        }
+        
+        function unduhPDF() {
+            if (!window.testData) {
+                alert('⚠️ Silakan hitung skor terlebih dahulu!');
+                return;
+            }
+            
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            let y = 20;
+            
+            // Header
+            doc.setFontSize(16);
+            doc.text('UJI FORMATIF BAB 1', 105, y, { align: 'center' });
+            y += 10;
+            doc.setFontSize(12);
+            doc.text('Hakikat Kurikulum, Pengembangan dan Inovasi Kurikulum', 105, y, { align: 'center' });
+            y += 15;
+            
+            // Data Siswa
+            doc.setFontSize(11);
+            doc.text('DATA SISWA:', 20, y);
+            y += 8;
+            doc.text(`Nama: ${window.testData.nama}`, 20, y);
+            y += 7;
+            doc.text(`NIS: ${window.testData.nim}`, 20, y);
+            y += 7;
+            doc.text(`Tanggal: ${window.testData.tanggal}`, 20, y);
+            y += 7;
+            doc.text(`Fakultas: ${window.testData.fakultas}`, 20, y);
+            y += 7;
+            doc.text(`Prodi: ${window.testData.prodi}`, 20, y);
+            y += 7;
+            doc.text(`Semester: ${window.testData.semester}`, 20, y);
+            y += 7;
+            doc.text(`Kelas: ${window.testData.kelas}`, 20, y);
+            y += 15;
+            
+            // Skor
+            doc.setFontSize(12);
+            doc.text('HASIL PENILAIAN:', 20, y);
+            y += 10;
+            doc.setFontSize(11);
+            doc.text(`Skor Pilihan Ganda: ${window.testData.skorPG}/100`, 20, y);
+            y += 7;
+            doc.text(`Skor Essay: ${window.testData.skorEssay}/100`, 20, y);
+            y += 7;
+            doc.text(`Skor Total: ${window.testData.skorTotal}/200`, 20, y);
+            y += 7;
+            doc.text(`Nilai Akhir: ${window.testData.nilaiAkhir}`, 20, y);
+            y += 15;
+            
+            // Jawaban PG
+            doc.setFontSize(12);
+            doc.text('JAWABAN PILIHAN GANDA:', 20, y);
+            y += 10;
+            doc.setFontSize(10);
+            for (let i = 1; i <= 10; i++) {
+                const jawaban = window.testData.jawabanPG[`pg${i}`];
+                const benar = jawaban === kunciJawaban[`pg${i}`] ? '✓' : '✗';
+                doc.text(`Soal ${i}: ${jawaban.toUpperCase()} ${benar}`, 20, y);
+                y += 6;
+            }
+            y += 10;
+            
+            // Jawaban Essay
+            doc.setFontSize(12);
+            doc.text('JAWABAN ESSAY:', 20, y);
+            y += 10;
+            doc.setFontSize(10);
+            for (let i = 1; i <= 5; i++) {
+                const jawaban = window.testData.jawabanEssay[`essay${i}`];
+                const splitText = doc.splitTextToSize(`Soal ${i}: ${jawaban}`, 170);
+                doc.text(splitText, 20, y);
+                y += splitText.length * 5 + 5;
+                
+                if (y > 270) {
+                    doc.addPage();
+                    y = 20;
+                }
+            }
+            
+            // Footer
+            doc.addPage();
+            doc.setFontSize(10);
+            doc.text('Dr. Supriadi, S.Ag., M.Pd', 105, 280, { align: 'center' });
+            doc.text('Prodi S.2 PAI UIN Bukittinggi', 105, 287, { align: 'center' });
+            
+            // Simpan PDF
+            doc.save(`Uji-Formatif-Bab1-${window.testData.nim}.pdf`);
+        }
+        
+        function unduhSkor() {
+            if (!window.testData) {
+                alert('⚠️ Silakan hitung skor terlebih dahulu!');
+                return;
+            }
+            
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            doc.setFontSize(16);
+            doc.text('HASIL UJI FORMATIF BAB 1', 105, 40, { align: 'center' });
+            doc.setFontSize(12);
+            doc.text('Hakikat Kurikulum, Pengembangan dan Inovasi Kurikulum', 105, 55, { align: 'center' });
+            doc.line(20, 60, 190, 60);
+            
+            let y = 80;
+            doc.setFontSize(12);
+            doc.text(`Nama: ${window.testData.nama}`, 20, y);
+            y += 10;
+            doc.text(`NIM: ${window.testData.nim}`, 20, y);
+            y += 10;
+            doc.text(`Tanggal: ${window.testData.tanggal}`, 20, y);
+            y += 15;
+            
+            doc.setFontSize(14);
+            doc.text('HASIL PENILAIAN:', 20, y);
+            y += 12;
+            
+            doc.setFontSize(12);
+            doc.text(`Skor Pilihan Ganda: ${window.testData.skorPG}/100`, 20, y);
+            y += 10;
+            doc.text(`Skor Essay: ${window.testData.skorEssay}/100`, 20, y);
+            y += 10;
+            doc.text(`Skor Total: ${window.testData.skorTotal}/200`, 20, y);
+            y += 10;
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            doc.text(`Nilai Akhir: ${window.testData.nilaiAkhir}`, 20, y);
+            
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            doc.text('Bukittinggi, ' + new Date().toLocaleDateString('id-ID'), 140, 250);
+            y = 270;
+            doc.text('Dr. Supriadi, S.Ag., M.Pd', 140, y);
+            
+            doc.save(`Skor-Uji-Formatif-Bab1-${window.testData.nim}.pdf`);
+        }
+        
+        function kirimEmail() {
+            if (!window.testData) {
+                alert('⚠️ Silakan hitung skor terlebih dahulu!');
+                return;
+            }
+            
+            const subject = `Uji Formatif Bab 1 - ${window.testData.nama} - ${window.testData.nim}`;
+            const body = `Yth. Dr. Supriadi, S.Ag., M.Pd,
+
+Saya telah menyelesaikan Uji Formatif Bab 1 dengan hasil sebagai berikut:
+
+DATA MAHASISWA:
+Nama: ${window.testData.nama}
+NIM: ${window.testData.nim}
+Tanggal: ${window.testData.tanggal}
+Fakultas: ${window.testData.fakultas}
+Prodi: ${window.testData.prodi}
+Semester: ${window.testData.semester}
+Kelas: ${window.testData.kelas}
+
+HASIL PENILAIAN:
+Skor Pilihan Ganda: ${window.testData.skorPG}/100
+Skor Essay: ${window.testData.skorEssay}/100
+Skor Total: ${window.testData.skorTotal}/200
+Nilai Akhir: ${window.testData.nilaiAkhir}
+
+Demikian laporan ini saya sampaikan. Terima kasih.
+
+Hormat saya,
+${window.testData.nama}`;
+            
+            window.location.href = `mailto:supriadi@uinbukittinggi.ac.id?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+        
+        function resetForm() {
+            if (confirm('⚠️ Apakah Anda yakin ingin memulai ulang? Semua jawaban akan dihapus.')) {
+                location.reload();
+            }
+        }
+    </script>
+</body>
+</html>

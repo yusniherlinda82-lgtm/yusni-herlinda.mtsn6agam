@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buku Informatika Kelas VIII - Yusni Herlinda</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #3b82f6;
+            --accent: #10b981;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #334155;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .author-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: inline-block;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .author-info p {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .author-info a {
+            color: #a7f3d0;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .author-info a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .intro h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .toc {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .chapter-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary);
+        }
+
+        .chapter-card h3 {
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.75rem;
+        }
+
+        .chapter-card h3 a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.25rem;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .chapter-card h3 a:hover {
+            color: var(--secondary);
+        }
+
+        .toc-list {
+            list-style-type: none;
+            flex-grow: 1;
+        }
+
+        .toc-list li {
+            margin-bottom: 0.75rem;
+            color: var(--text);
+            font-size: 0.95rem;
+            border-left: 3px solid transparent;
+            padding-left: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .toc-list li:hover {
+            border-left-color: var(--secondary);
+            background-color: #f1f5f9;
+            padding-left: 15px;
+        }
+
+        .toc-list ul {
+            list-style-type: none;
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .toc-list ul li {
+            margin-bottom: 0.4rem;
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .toc-list ul li:hover {
+            background-color: transparent;
+            padding-left: 0;
+            color: var(--primary);
+        }
+
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 3rem 1rem;
+            }
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .toc {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="hero-content">
+        <h1>Informatika -BS-KLS-VIII-1.pdf</h1>
+        <p class="subtitle">Buku Siswa Kurikulum Merdeka</p>
+        <div class="author-info">
+            <p><strong>Penulis:</strong> Yusni Herlinda</p>
+            <p><strong>Sekolah:</strong> MTsN 6 Agam</p>
+            <p><strong>Email:</strong> <a href="mailto:yusni.herlinda@gmail.com">yusni.herlinda@gmail.com</a></p>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <section class="intro">
+        <h2>Daftar Isi Buku</h2>
+        <p>Buku ini disusun berdasarkan Kurikulum Merdeka untuk membekali peserta didik dengan pemahaman mendalam tentang Informatika, mulai dari Berpikir Komputasional hingga Praktik Lintas Bidang.</p>
+    </section>
+
+    <section class="toc">
+        <!-- Bab 1 -->
+        <div class="chapter-card">
+            <h3><a href="bab1.html" target="_blank">Bab 1: Informatika dan Pembelajarannya</a></h3>
+            <ul class="toc-list">
+                <li><strong>A.</strong> Informatika dan Profil Pelajar Pancasila</li>
+                <li><strong>B.</strong> Cara Belajar Informatika</li>
+                <li><strong>C.</strong> Kilas Balik Mata Pelajaran Informatika Kelas VII</li>
+                <li><strong>D.</strong> Apa yang akan Kalian Pelajari di Kelas VIII?</li>
+                <li><strong>E.</strong> Apa Harapan Guru?</li>
+            </ul>
+        </div>
+
+        <!-- Bab 2 -->
+        <div class="chapter-card">
+            <h3><a href="bab2.html" target="_blank">Bab 2: Berpikir Komputasional</a></h3>
+            <ul class="toc-list">
+                <li><strong>A. Fungsi</strong></li>
+                <li><strong>B. Himpunan dan Sistem Bilangan</strong>
+                    <ul>
+                        <li>1. Himpunan</li>
+                        <li>2. Sistem Bilangan
+                            <ul>
+                                <li>a. Ilustrasi Sistem Bilangan (Timbangan Digital, Tas & Logam Mulia)</li>
+                                <li>b. Konversi Bilangan Desimal menjadi Biner dan Oktal</li>
+                                <li>c. Konversi Bilangan Biner dan Oktal menjadi Desimal</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>C. Algoritma</strong></li>
+                <li><strong>D. Struktur Data</strong></li>
+            </ul>
+        </div>
+
+        <!-- Bab 3 -->
+        <div class="chapter-card">
+            <h3><a href="bab3.html" target="_blank">Bab 3: Teknologi Informasi dan Komunikasi</a></h3>
+            <ul class="toc-list">
+                <li><strong>A. Perangkat Lunak Aplikasi dan Fitur Aplikasi</strong>
+                    <ul>
+                        <li>1. Objek Aplikasi & Fitur Aplikasi (Antarmuka, Cut/Copy/Paste, Snipping Tools)</li>
+                        <li>2. Studi Kasus: Analisis & Bedah Aplikasi Pengolah Kata</li>
+                    </ul>
+                </li>
+                <li><strong>B. Pembuatan Laporan</strong></li>
+                <li><strong>C. Merangkum Narasi dari Konten Digital</strong></li>
+                <li><strong>D. Laboratorium Maya</strong>
+                    <ul>
+                        <li>Sejarah & Platform: Phet, NOVA Labs, The Concord Consortium</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Bab 4 -->
+        <div class="chapter-card">
+            <h3><a href="bab4.html" target="_blank">Bab 4: Sistem Komputer</a></h3>
+            <ul class="toc-list">
+                <li><strong>A. Komponen Sistem Komputer</strong>
+                    <ul>
+                        <li>1. Perangkat Keras (Hardware)</li>
+                        <li>2. Perangkat Lunak (Software: OS, Aplikasi, Pemrograman)</li>
+                    </ul>
+                </li>
+                <li><strong>B. Pengalamatan Memori</strong>
+                    <ul>
+                        <li>1. Sistem Heksadesimal</li>
+                        <li>2. Pengalamatan Memori dengan Heksadesimal</li>
+                    </ul>
+                </li>
+                <li><strong>C. Central Processing Unit (CPU)</strong></li>
+            </ul>
+        </div>
+
+        <!-- Bab 5 -->
+        <div class="chapter-card">
+            <h3><a href="bab5.html" target="_blank">Bab 5: Jaringan Komputer dan Internet</a></h3>
+            <ul class="toc-list">
+                <li><strong>A. Jaringan Komputer</strong>
+                    <ul>
+                        <li>1. Jaringan Lokal & Internet</li>
+                        <li>2. Konfigurasi & Routing pada Jaringan Komputer</li>
+                    </ul>
+                </li>
+                <li><strong>B. Komunikasi Data pada Ponsel</strong></li>
+                <li><strong>C. Terhubung ke Internet dengan Aman</strong>
+                    <ul>
+                        <li>1. Web Phishing</li>
+                        <li>2. Setting Keamanan pada Browser</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Bab 6 -->
+        <div class="chapter-card">
+            <h3><a href="bab6.html" target="_blank">Bab 6: Analisis Data</a></h3>
+            <ul class="toc-list">
+                <li><strong>A. Pencarian Data</strong>
+                    <ul>
+                        <li>1. Pencarian Data dengan Fungsi Lookup</li>
+                        <li>2. Pencarian Data dengan Fungsi Reference</li>
+                    </ul>
+                </li>
+                <li><strong>B. Visualisasi Data</strong></li>
+                <li><strong>C. Peringkasan Data</strong>
+                    <ul>
+                        <li>1. SUMIFS dan COUNTIFS</li>
+                        <li>2. Pivot Table Satu & Dua Dimensi</li>
+                    </ul>
+                </li>
+                <li><strong>D. Pengelolaan Data</strong></li>
+                <li><strong>E. Studi Kasus</strong></li>
+            </ul>
+        </div>
+
+        <!-- Bab 7 -->
+        <div class="chapter-card">
+            <h3><a href="bab7.html" target="_blank">Bab 7: Algoritma dan Pemrograman</a></h3>
+            <ul class="toc-list">
+                <li><strong>A. Eksplorasi Lanjutan Scratch</strong></li>
+                <li><strong>B. Pengantar Blockly Games dan Puzzle Maze</strong></li>
+                <li><strong>C. Eksplorasi Blockly Games Music & Sprites</strong></li>
+                <li><strong>D. Pengenalan Pemrograman Prosedural</strong></li>
+                <li><strong>E. Modul Tambahan: Bermain dengan Robot Ozobot</strong></li>
+            </ul>
+        </div>
+
+        <!-- Bab 8 -->
+        <div class="chapter-card">
+            <h3><a href="bab8.html" target="_blank">Bab
